@@ -1,87 +1,149 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>BookIn</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: 'Quicksand', sans-serif;
-    }
-    .logo-text {
-      font-family: 'Montserrat', sans-serif;
-    }
-  </style>
- </head>
- <body class="bg-[#FAF0DC] min-h-screen flex flex-col">
-  <!-- Navigation -->
-  <nav class="flex items-center justify-between px-8 py-6 max-w-[1200px] mx-auto w-full">
-   <div class="flex items-center space-x-2">
-    <img src="cadastro.png" class="h-12"/>
-   </div>
-   <ul class="hidden sm:flex items-center space-x-10 text-[20px] text-[#1A1A1A] font-normal">
-    <li class="cursor-pointer hover:underline">Início</li>
-    <li class="cursor-pointer font-bold hover:underline">Catálogo</li>
-    <li class="cursor-pointer hover:underline">Disponíveis</li>
-   </ul>
-   <div class="hidden sm:flex items-center space-x-4">
-    <form class="relative">
-     <input class="italic text-base text-[#B7B7B7] bg-transparent border-none outline-none pr-7 placeholder:italic placeholder:text-[#B7B7B7] font-quicksand" placeholder="Procure um livro aqui" type="text"/>
-     <button aria-label="Search" class="absolute right-0 top-1/2 -translate-y-1/2 text-[#1A1A1A]" type="submit">
-      <i class="fas fa-search"></i>
-     </button>
-    </form>
-    <div class="w-10 h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center">
-     <i class="fas fa-user text-[#FAF0DC]"></i>
-    </div>
-   </div>
-  </nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>BookIn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Quicksand', sans-serif;
+      }
+      .logo-text {
+        font-family: 'Montserrat', sans-serif;
+      }
+      .btn-genero {
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      .btn-genero:hover {
+        background-color: #a4b97b;
+        color: white;
+        border-color: #a4b97b;
+      }
+      .btn-genero.active {
+        background-color: #8A9A5B;
+        color: white;
+        border-color: #8A9A5B;
+      }
+      .btn-salvar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
 
-  <!-- Main content -->
-  <main class="flex flex-col lg:flex-row w-full max-w-[1200px] mx-auto px-4 sm:px-8 py-6 gap-6 flex-grow">
-   <!-- Imagem -->
-   <div class="w-full lg:w-[400px] h-[300px] sm:h-[400px] lg:h-[500px] bg-[#2B2B2B] rounded-md flex items-center justify-center">
-    <img src="imggggggggg.png" class="h-full object-contain" />
-   </div>
+  <body class="bg-[#FAF0DC] min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="flex items-center justify-between px-8 py-6 max-w-[1200px] mx-auto w-full">
+      <div class="flex items-center space-x-2">
+        <img src="cadastro.png" class="h-12" />
+      </div>
+      <ul class="hidden sm:flex items-center space-x-10 text-[20px] text-[#1A1A1A] font-normal">
+        <li class="cursor-pointer hover:underline">Início</li>
+        <li class="cursor-pointer font-bold hover:underline">Catálogo</li>
+        <li class="cursor-pointer hover:underline">Disponíveis</li>
+      </ul>
+      <div class="hidden sm:flex items-center space-x-4">
+        <form class="relative">
+          <input
+            class="italic text-base text-[#B7B7B7] bg-transparent border-none outline-none pr-7 placeholder:italic placeholder:text-[#B7B7B7] font-quicksand"
+            placeholder="Procure um livro aqui"
+            type="text"
+          />
+          <button
+            aria-label="Search"
+            class="absolute right-0 top-1/2 -translate-y-1/2 text-[#1A1A1A]"
+            type="submit"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <div class="w-10 h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center">
+          <i class="fas fa-user text-[#FAF0DC]"></i>
+        </div>
+      </div>
+    </nav>
 
-   <!-- Formulário -->
-   <form class="flex flex-col flex-grow w-full">
-    <h2 class="text-[#4B4B4B] font-bold text-2xl sm:text-3xl mb-4 sm:mb-6 font-montserrat">Adicionar nome</h2>
+    <!-- Main content -->
+    <main class="flex flex-col lg:flex-row w-full max-w-[1200px] mx-auto px-4 sm:px-8 py-6 gap-6 flex-grow">
+      <!-- Imagem (maior) -->
+      <div
+        class="w-full lg:w-[500px] h-[350px] sm:h-[450px] lg:h-[550px] bg-[#2B2B2B] rounded-md flex items-center justify-center"
+      >
+        <img src="imggggggggg.png" class="h-full object-contain" />
+      </div>
 
-    <label class="font-bold text-[#1A1A1A] mb-1 sm:mb-2 font-montserrat" for="autor">Autor:</label>
-    <input class="mb-4 sm:mb-6 w-full border-none bg-transparent text-[#4B4B4B] font-quicksand text-base sm:text-lg outline-none py-2" id="autor" placeholder="Nome autor" type="text"/>
+      <!-- Formulário -->
+      <form class="flex flex-col flex-grow w-full">
+        
 
-    <label class="font-bold text-[#1A1A1A] mb-1 sm:mb-2 font-montserrat" for="ano">Ano:</label>
-    <input class="mb-4 sm:mb-6 w-full border-none bg-transparent text-[#4B4B4B] font-quicksand text-base sm:text-lg outline-none py-2" id="ano" placeholder="DD/MM/AA" type="text"/>
+        <label for="nome" class="font-bold text-[#1A1A1A] mb-1 sm:mb-2 font-montserrat">Adicionar nome:</label>
+        <input
+          id="nome"
+          placeholder="Nome do livro"
+          type="text"
+          class="mb-4 sm:mb-6 w-full border-none bg-transparent text-[#4B4B4B] font-quicksand text-base sm:text-lg outline-none py-2"
+        />
 
-    <label class="font-bold text-[#1A1A1A] mb-1 sm:mb-2 font-montserrat" for="descricao">Descrição:</label>
-    <textarea class="mb-4 sm:mb-6 w-full border-none bg-transparent text-[#4B4B4B] font-quicksand text-base sm:text-lg outline-none resize-none" id="descricao" placeholder="Adicionar descrição" rows="4"></textarea>
+        <label for="autor" class="font-bold text-[#1A1A1A] mb-1 sm:mb-2 font-montserrat">Autor:</label>
+        <input
+          id="autor"
+          placeholder="Nome autor"
+          type="text"
+          class="mb-4 sm:mb-6 w-full border-none bg-transparent text-[#4B4B4B] font-quicksand text-base sm:text-lg outline-none py-2"
+        />
 
-    <label class="font-bold text-[#1A1A1A] mb-2 font-montserrat">Gênero:</label>
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-4 mb-6">
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Romance</button>
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Técnicos</button>
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Mistério</button>
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Suspense</button>
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Terror</button>
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Fantasia</button>
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Ficção Científica</button>
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Poema</button>
-     <button class="border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg" type="button">Contos</button>
-    </div>
+        <label for="ano" class="font-bold text-[#1A1A1A] mb-1 sm:mb-2 font-montserrat">Ano:</label>
+        <input
+          id="ano"
+          placeholder="DD/MM/AA"
+          type="text"
+          class="mb-4 sm:mb-6 w-full border-none bg-transparent text-[#4B4B4B] font-quicksand text-base sm:text-lg outline-none py-2"
+        />
 
-    <button class="bg-[#8A9A5B] text-white font-bold rounded-full py-3 w-full font-montserrat text-base sm:text-lg" type="submit">SALVAR</button>
-   </form>
-  </main>
+        <label for="descricao" class="font-bold text-[#1A1A1A] mb-1 sm:mb-2 font-montserrat">Descrição:</label>
+        <textarea
+          id="descricao"
+          placeholder="Adicionar descrição"
+          rows="4"
+          class="mb-4 sm:mb-4 w-full border-none bg-transparent text-[#4B4B4B] font-quicksand text-base sm:text-lg outline-none resize-none"
+        ></textarea>
 
-  <!-- Bottom left circles -->
-  <div aria-hidden="true" class="fixed bottom-0 left-0 -z-10 pointer-events-none">
-   <img alt="Large green circle gradient shape" class="w-[200px] h-[200px] object-contain" height="200" src="https://storage.googleapis.com/a1aa/image/2407b750-4933-4a62-37c9-aeb448d24293.jpg" width="200"/>
-  </div>
-  <div aria-hidden="true" class="fixed bottom-0 left-12 -z-10 pointer-events-none">
-   <img alt="Medium red circle gradient shape" class="w-[160px] h-[160px] object-contain" height="160" src="https://storage.googleapis.com/a1aa/image/042359b1-f7ff-4807-16c4-cdb52403f9bd.jpg" width="160"/>
-  </div>
- </body>
+        <label class="font-bold text-[#1A1A1A] mb-2 font-montserrat">Gênero:</label>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-4 mb-6">
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Romance</button>
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Técnicos</button>
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Mistério</button>
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Suspense</button>
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Terror</button>
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Fantasia</button>
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Ficção Científica</button>
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Poema</button>
+          <button type="button" class="btn-genero border border-[#1A1A1A] rounded-full py-2 px-4 sm:px-8 text-[#1A1A1A] font-quicksand text-sm sm:text-lg">Contos</button>
+        </div>
+
+        <button type="submit" class="btn-salvar bg-[#8A9A5B] text-white font-bold rounded-full py-3 w-full font-montserrat text-base sm:text-lg">
+          SALVAR
+        </button>
+      </form>
+    </main>
+
+   
+
+    <script>
+      document.querySelectorAll('.btn-genero').forEach(button => {
+        button.addEventListener('click', () => {
+          button.classList.toggle('active');
+        });
+      });
+    </script>
+  </body>
 </html>
